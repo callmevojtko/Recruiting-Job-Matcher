@@ -5,7 +5,7 @@
 chrome.browserAction.onClicked.addListener(async (info, tab) => {
   // Create a new tab with the pop-up HTML page
   chrome.tabs.create({
-    url: '../popup.html',
+    url: 'popup.html',
     active: true
   });
 });
