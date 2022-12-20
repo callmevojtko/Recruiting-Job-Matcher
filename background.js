@@ -1,5 +1,5 @@
-// Set up a listener that listens for messages from the popup page
-chrome.runtime.onMessageExternal.addListener((request, sender, sendResponse) => {
+// Set up a listener that listens for messages from the content script
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   // Check if the message is a request for matching jobs
   if (request.type === 'get_matching_jobs') {
     // Get the URL of the Flask app
@@ -12,8 +12,14 @@ chrome.runtime.onMessageExternal.addListener((request, sender, sendResponse) => 
     })
       .then((response) => response.json())
       .then((data) => {
-        // Send a response with the matching jobs to the popup page
+        // Send a response with the matching jobs to the content script
         sendResponse(data);
+
+        // Send a message to the popup page with the matching jobs data
+        chrome.runtime.sendMessage({
+          type: 'matching_jobs',
+          data
+        });
       });
 
     // Return true to indicate that a response will be sent asynchronously
