@@ -15,7 +15,7 @@ app = Flask(__name__)
 
 # Define a route that listens for requests to the root URL
 @app.route('/', methods=['GET', 'POST'])
-def get_matching_jobs():
+def get_matching_jobs(request):
     # Check if the request method is POST
     if request.method == 'POST':
         # Get the keywords and years of experience from the request body
@@ -27,6 +27,10 @@ def get_matching_jobs():
         # Get the keywords and years of experience from the query string
         keywords = request.args.get("keywords")
         years_of_experience = request.args.get("years_of_experience")
+
+    # If the request method is neither POST nor GET, return a JSON object with a message
+    else:
+        return jsonify({"message": "Invalid request method"})
 
     if years_of_experience is None:
         years_of_experience = 0
@@ -76,4 +80,3 @@ def get_matching_jobs():
 # Run the app
 if __name__ == '__main__':
     app.run(host='localhost', port=5000)
-    get_matching_jobs()

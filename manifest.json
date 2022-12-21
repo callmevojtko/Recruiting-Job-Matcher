@@ -3,16 +3,20 @@
   "version": "1.0",
   "manifest_version": 3,
   "description": "Input a tech stack and years of experience and find fits!",
-  "background": {
-    "service_worker": "background.js"
-  },
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_title": "Hatch Role Finder v1"
+  },
+  "background": {
+    "service_worker": "/js/background.js"
   },
   "content_scripts": [
     {
-      "matches": ["https://www.linkedin.com/*"],
-      "js": ["content.js"]
+      "matches": ["https://*.linkedin.com/*"],
+      "js": ["/js/content.js"]
     }
-  ]
+  ],
+  "permissions": [
+    "tabs"
+   ]
 }

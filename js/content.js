@@ -18,12 +18,20 @@ document.getElementById('form').addEventListener('submit', (event) => {
 
 function updateResults(data) {
   // Clear the existing results
-  document.getElementById('results').innerHTML = '';
+  window.document.getElementById('results').innerHTML = '';
 
   // Loop through the matching jobs data and create a new element for each job
   data.forEach((job) => {
-    const jobElement = document.createElement('div');
-  jobElement.innerHTML = `<h2>${job.title}</h2><p>${job.client}</p>`;
-document.getElementById('results').appendChild(jobElement);
-});
+    const jobElement = window.document.createElement('div');
+    jobElement.innerHTML = `<h2>${job.title}</h2><p>${job.client}</p>`;
+    window.document.getElementById('results').appendChild(jobElement);
+  });
 }
+
+// Set up a listener for messages from the background script
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.type === 'matching_jobs') {
+    // Update the results with the matching jobs data
+    updateResults(message.data);
+  }
+});
