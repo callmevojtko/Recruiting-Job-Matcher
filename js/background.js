@@ -26,3 +26,22 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     return true;
   }
 });
+
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.type === 'update_popup') {
+    // Update the popup with the new results
+    updatePopup(message.data);
+  }
+});
+
+function updatePopup(data) {
+  // Clear the existing results
+  document.getElementById('results').innerHTML = '';
+
+  // Loop through the matching jobs data and create a new element for each job
+  data.forEach((job) => {
+    const jobElement = document.createElement('div');
+    jobElement.innerHTML = `<h2>${job.title}</h2><p>${job.client}</p>`;
+    document.getElementById('results').appendChild(jobElement);
+  });
+}
