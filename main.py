@@ -15,7 +15,7 @@ app = Flask(__name__)
 
 # Define a route that listens for requests to the root URL
 @app.route('/', methods=['GET', 'POST'])
-def get_matching_jobs(request):
+def get_matching_jobs():
     # Check if the request method is POST
     if request.method == 'POST':
         # Get the keywords and years of experience from the request body
@@ -79,4 +79,4 @@ def get_matching_jobs(request):
 
 # Run the app
 if __name__ == '__main__':
-    app.run(host='localhost', port=5000)
+    app.run()
