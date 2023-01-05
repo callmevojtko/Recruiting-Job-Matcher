@@ -5,7 +5,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   // Check if the message is a request for matching jobs
   if (request.type === 'get_matching_jobs') {
     // Get the URL of the Flask app
-    const url = chrome.runtime.getURL('/');
+    const url = chrome.runtime.getURL('http://127.0.0.1:5000');
     
     // Send a request to the Flask app
     fetch(url, {
@@ -24,7 +24,10 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
           data
         });
       })
-
+      .catch((error) => {
+        console.error(error);
+        sendResponse({ message: 'An error occurred' });
+      });
     // Return true to indicate that a response will be sent asynchronously
     return true;
   }

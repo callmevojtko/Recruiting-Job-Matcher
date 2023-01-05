@@ -1,5 +1,6 @@
 import json
 from flask import Flask, request, jsonify
+from flask_cors import CORS, cross_origin
 
 # Define the jobs list
 jobs = [
@@ -12,15 +13,19 @@ jobs = [
 
 # Create a new Flask app
 app = Flask(__name__)
+CORS(app, origins=['chrome-extension://dnhomccjnkkpegmlglbkpbihnddecegh'])
 
 # Define a route that listens for requests to the root URL
 @app.route('/', methods=['GET', 'POST'])
+@cross_origin()
 def get_matching_jobs():
     # Check if the request method is POST
     if request.method == 'POST':
-        # Get the keywords and years of experience from the request body
-        keywords = request.form.get("keywords")
-        years_of_experience = request.form.get("years_of_experience")
+        # Get the data from the request body as a JSON object
+        data = request.json
+    # Get the keywords and years of experience from the data object
+        keywords = data.get("keywords")
+        years_of_experience = data.get("years_of_experience")   
 
     # Check if the request method is GET
     elif request.method == 'GET':

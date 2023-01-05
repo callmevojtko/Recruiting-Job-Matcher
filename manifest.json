@@ -13,7 +13,7 @@
   "content_scripts": [
     {
       "matches": ["https://*.linkedin.com/*"],
-      "js": ["/js/content.js"]
+      "js": ["/js/content2.js"]
     }
   ],
   "permissions": [
