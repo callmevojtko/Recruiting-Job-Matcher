@@ -1,0 +1,67 @@
+/* Add a white background color and some padding to the pop up */
+#popup {
+    background-color: white;
+    padding: 20px;
+  }
+  
+  /* Style the form elements */
+  #popup form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #popup form label,
+  #popup form input,
+  #popup form button {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  
+  #popup form label {
+    font-weight: bold;
+  }
+  
+  #popup form input {
+    padding: 10px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+  }
+  
+  #popup form button {
+    background-color: #00c853;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #popup form button:hover {
+    background-color: #00b843;
+  }
+  
+  /* Style the results container */
+  #popup #results {
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  #popup #results .result {
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  #popup #results .result h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #00c853;
+  }
+  
+  #popup #results .result p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: grey;
+  }  
