@@ -18,5 +18,8 @@
   ],
   "permissions": [
     "tabs"
-   ]
+   ],
+  "icons": {
+      "128": "logo.png"
+  }
 }

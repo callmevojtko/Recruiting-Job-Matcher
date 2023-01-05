@@ -1,67 +1,89 @@
+/*Main title style*/
+#title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00C853;
+    text-align: left;
+    margin: 20px 0;
+    display: inline-block;
+}  
+
+.logo {
+    display: inline-block;
+    background-image: url('/logo.jpeg');
+    width: 60px;
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    float: right;
+}
+
+.logo:hover {
+    transform: rotate(360deg);
+    transition: all 0.5s ease;
+}
+
 /* Add a white background color and some padding to the pop up */
-#popup {
+form {
     background-color: white;
+    width: 300px;
     padding: 20px;
-  }
-  
-  /* Style the form elements */
-  #popup form {
     display: flex;
     flex-direction: column;
-  }
-  
-  #popup form label,
-  #popup form input,
-  #popup form button {
     font-size: 16px;
-    margin: 5px 0;
-  }
-  
-  #popup form label {
-    font-weight: bold;
-  }
-  
-  #popup form input {
-    padding: 10px;
-    border: 1px solid lightgrey;
+    margin: 0 auto;
+    align-items: center;
     border-radius: 5px;
-  }
+}
   
-  #popup form button {
-    background-color: #00c853;
+form label {
+    font-weight: bold;
+    font-size: 16px;
+    margin: auto;
+}
+  
+form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: auto 0;
+}
+  
+/* Add a green background color to the results container */
+#results {
+    background-color: #4caf50;
+}
+  
+/* Style the individual result elements */
+#results div {
+    /* Add some padding to the elements */
+    padding: 10px;
+    /* Set the font color to white */
     color: white;
+    /* Use the Arial font */
+    font-family: Arial;
+    /* Add a border to the bottom of the elements */
+    border-bottom: 1px solid white;
+}
+  
+  /* Style the submit button */
+#submit-button {
+    /* Add a green background color */
+    background-color: #4caf50;
+    /* Set the font color to white */
+    color: white;
+    /* Add some padding */
     padding: 10px 20px;
+    /* Add a border */
     border: none;
     border-radius: 5px;
+    /* Add some hover effect */
     cursor: pointer;
-  }
+}
   
-  #popup form button:hover {
-    background-color: #00b843;
-  }
-  
-  /* Style the results container */
-  #popup #results {
-    margin: 20px 0;
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  #popup #results .result {
-    width: 50%;
-    padding: 10px;
-    box-sizing: border-box;
-  }
-  
-  #popup #results .result h3 {
-    margin: 0;
-    font-size: 18px;
-    font-weight: bold;
-    color: #00c853;
-  }
-  
-  #popup #results .result p {
-    margin: 5px 0;
-    font-size: 14px;
-    color: grey;
-  }  
+  /* Style the submit button when it's hovered over */
+#submit-button:hover {
+    /* Add a darker green background color */
+    background-color: #3e8e41;
+}
