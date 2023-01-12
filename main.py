@@ -1,14 +1,19 @@
 import json
+import difflib
 from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
 
 # Define the jobs list
 jobs = [
-    {"title": "Senior Software Engineer", "client": "Aledade", "skills": ["Vue", "Python", "SQL", "healthcare"],"years of experience": 5},
-    {"title": "Tech Lead", "client": "Aledade", "skills": ["Vue", "Python", "SQL","healthcare"],"years of experience": 7},
-    {"title": "Software Engineer", "client": "Certipath", "skills": ["Vue", "C#", ".NET"],"years of experience": 4},
-    {"title": "Full Stack Engineer", "client": "Grifin", "skills": ["React Native", "Node", "Mobile"],"years of experience": 3},
-    {"title": "Lead Python Developer", "client": "SoundExchange", "skills": ["Python", "SQL", "AWS"],"years of experience": 8},
+    {"client": "Aledade", "title": "Senior Software Engineer", "skills": ["Vue", "Python", "SQL", "healthcare", "Flask", "PostgreSQL"],"years of experience": 5},
+    {"client": "Aledade", "title": "Tech Lead", "skills": ["Vue", "Python", "SQL", "healthcare", "Flask", "PostgreSQL"],"years of experience": 7},
+    {"client": "Aledade", "title": "Software Architect", "skills": ["Python", "SQL", "Vue", "PostgreSQL", "healthcare", "data"],"years of experience": 7},
+    {"client": "Corsha", "title": "Software Engineer in Test", "skills": ["Python", "Selenium", "Go", "test", "testing"],"years of experience": 2},
+    {"client": "Grifin", "title": "Full Stack Engineer", "skills": ["React-Native", "Node", "Mobile"],"years of experience": 3},
+    {"client": "Racktop", "title": "Full Stack Engineer", "skills": ["React", "Typescript", "Material UI", "Bootstrap"],"years of experience": 4},
+    {"client": "Racktop", "title": "QA Engineer", "skills": ["AWS", "Linux", "test", "testing"],"years of experience": 4},
+    {"client": "Akrew", "title": "Software Developer", "skills": ["React", "Node", "SQL", "PostgreSQL", "scaling"],"years of experience": 4},
+    {"client": "IraLogix", "title": "Senior Backend Engineer", "skills": ["Java", "Spring", "AWS", "SQL", "Angular"],"years of experience": 5},
 ]
 
 # Create a new Flask app

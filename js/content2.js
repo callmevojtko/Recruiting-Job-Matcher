@@ -30,7 +30,7 @@ form.addEventListener("submit", function(event) {
         // Otherwise, display the list of matching jobs
         let html = "";
         for (const job of response) {
-          html += `<div>${job.title} - ${job.client}</div>`;
+          html += `<div>${job.client} - ${job.title}</div>`;
         }
         document.getElementById("results").innerHTML = html;
       }

@@ -47,7 +47,7 @@ function updatePopup(data) {
   // Loop through the matching jobs data and create a new element for each job
   data.forEach((job) => {
     const jobElement = document.createElement('div');
-    jobElement.innerHTML = `<h2>${job.title}</h2><p>${job.client}</p>`;
+    jobElement.innerHTML = `<h2>${job.client}</h2><p>${job.title}</p>`;
     document.getElementById('results').appendChild(jobElement);
   });
 }
